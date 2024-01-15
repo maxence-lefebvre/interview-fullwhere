@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@fullwhere/kernel/data-access/datasource": [
+        "libs/kernel/data-access/datasource/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
