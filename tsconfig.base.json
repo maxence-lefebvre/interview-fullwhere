@@ -15,6 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@fullwhere/features/feedbacks/data-access": [
+        "libs/features/feedbacks/data-access/src/index.ts"
+      ],
       "@fullwhere/kernel/data-access/datasource": [
         "libs/kernel/data-access/datasource/src/index.ts"
       ]
