@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16
+    ports:
+      - '9001:5432'
+    volumes:
+      - ./apps/system/db/volumes/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: postgres
+      APP_DB_USER: $APP_DB_USER
+      APP_DB_PASS: $APP_DB_PASS
+      APP_DB_NAME: $APP_DB_NAME
