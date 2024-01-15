@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { RootDatasourceModule } from '@fullwhere/kernel/data-access/datasource';
+
+import { appConfig } from './config/app.config';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [ConfigModule.forFeature(appConfig), RootDatasourceModule],
 })
 export class AppModule {}

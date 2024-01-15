@@ -14,3 +14,4 @@ services:
       APP_DB_USER: $APP_DB_USER
       APP_DB_PASS: $APP_DB_PASS
       APP_DB_NAME: $APP_DB_NAME
+      APP_DB_SCHEMA: $APP_DB_SCHEMA
