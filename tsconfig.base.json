@@ -20,7 +20,8 @@
       ],
       "@fullwhere/kernel/data-access/datasource": [
         "libs/kernel/data-access/datasource/src/index.ts"
-      ]
+      ],
+      "@fullwhere/kernel/graphql": ["libs/kernel/graphql/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
