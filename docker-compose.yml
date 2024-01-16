@@ -13,6 +13,8 @@ services:
       APP_DB_PASS: $APP_DB_PASS
       APP_DB_NAME: $APP_DB_NAME
       APP_DB_SCHEMA: $APP_DB_SCHEMA
+      APP_REDIS_HOST: 'redis'
+      APP_REDIS_PORT: '6379'
 
   db:
     image: postgres:16
@@ -28,3 +30,8 @@ services:
       APP_DB_PASS: $APP_DB_PASS
       APP_DB_NAME: $APP_DB_NAME
       APP_DB_SCHEMA: $APP_DB_SCHEMA
+
+  redis:
+    image: redis/redis-stack-server:latest
+    ports:
+      - '9002:6379'

@@ -25,6 +25,7 @@
       "@fullwhere/features/feedbacks/graphql": [
         "libs/features/feedbacks/graphql/src/index.ts"
       ],
+      "@fullwhere/kernel/cache": ["libs/kernel/cache/src/index.ts"],
       "@fullwhere/kernel/data-access/datasource": [
         "libs/kernel/data-access/datasource/src/index.ts"
       ],

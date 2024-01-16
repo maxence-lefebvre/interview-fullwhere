@@ -10,7 +10,7 @@
 ## Starting the API
 
 1. Install dependencies: `pnpm install`
-2. Start the database: `npm run start:db`
+2. Start the database: `npm run start:deps`
 3. Start the API: `npm run start:api`
 4. _(Optional)_ Seed the database: `npm run seed:db`
 
