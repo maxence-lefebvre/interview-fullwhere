@@ -1,6 +1,19 @@
 version: '3.8'
 
 services:
+  api:
+    image: api:latest
+    ports:
+      - '9000:3333'
+    environment:
+      PORT: '3333'
+      APP_DB_HOST: 'db'
+      APP_DB_PORT: '5432'
+      APP_DB_USER: $APP_DB_USER
+      APP_DB_PASS: $APP_DB_PASS
+      APP_DB_NAME: $APP_DB_NAME
+      APP_DB_SCHEMA: $APP_DB_SCHEMA
+
   db:
     image: postgres:16
     ports:

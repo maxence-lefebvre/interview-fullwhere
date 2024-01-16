@@ -3,9 +3,11 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start:db": "docker-compose up -d db",
+    "start:db": "docker compose up -d db",
     "start:api": "nx run api:serve",
+    "start:api:docker": "docker compose up -d api",
     "seed:db": "nx run cli-serve --args=\"seed\"",
+    "package:all": "nx run-many --all --target=package --production",
     "prepare": "is-ci || husky install"
   },
   "private": true,
@@ -34,6 +36,8 @@
     "@faker-js/faker": "^8.3.1",
     "@nestjs/schematics": "^10.0.1",
     "@nestjs/testing": "^10.0.2",
+    "@nx-tools/container-metadata": "^5.1.0",
+    "@nx-tools/nx-container": "^5.1.0",
     "@nx/eslint": "17.2.8",
     "@nx/eslint-plugin": "17.2.8",
     "@nx/jest": "17.2.8",
