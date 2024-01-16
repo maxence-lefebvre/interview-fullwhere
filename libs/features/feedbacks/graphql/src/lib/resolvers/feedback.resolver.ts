@@ -1,12 +1,17 @@
+import { Args, Int, Query, Resolver } from '@nestjs/graphql';
+import {
+  Between,
+  FindOptionsWhere,
+  LessThanOrEqual,
+  MoreThanOrEqual,
+} from 'typeorm';
+
+import { FeedbackRepository } from '@fullwhere/features/feedbacks/data-access';
 import {
   FeedbackModel,
   FeedbackProvider,
   FeedbackStatus,
 } from '@fullwhere/features/feedbacks/domain';
-import { Args, Int, Query, Resolver } from '@nestjs/graphql';
-import { FindOptionsWhere, LessThanOrEqual, MoreThanOrEqual } from 'typeorm';
-
-import { FeedbackRepository } from '@fullwhere/features/feedbacks/data-access';
 
 @Resolver(() => FeedbackModel)
 export class FeedbackResolver {
@@ -32,6 +37,8 @@ export class FeedbackResolver {
         ...(minNote && { note: MoreThanOrEqual(minNote) }),
         ...(createdAfter && { createdAt: MoreThanOrEqual(createdAfter) }),
         ...(createdBefore && { createdAt: LessThanOrEqual(createdBefore) }),
+        ...(createdAfter &&
+          createdBefore && { createdAt: Between(createdAfter, createdBefore) }),
       } satisfies FindOptionsWhere<FeedbackModel>,
     });
   }
