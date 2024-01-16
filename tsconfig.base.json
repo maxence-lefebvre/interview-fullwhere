@@ -18,6 +18,9 @@
       "@fullwhere/features/feedbacks/data-access": [
         "libs/features/feedbacks/data-access/src/index.ts"
       ],
+      "@fullwhere/features/feedbacks/domain": [
+        "libs/features/feedbacks/domain/src/index.ts"
+      ],
       "@fullwhere/features/feedbacks/graphql": [
         "libs/features/feedbacks/graphql/src/index.ts"
       ],

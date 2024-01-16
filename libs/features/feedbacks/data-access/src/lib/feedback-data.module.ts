@@ -1,13 +1,14 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { FeedbackEntity } from './entities/feedback.entity';
+import { FeedbackModel } from '@fullwhere/features/feedbacks/domain';
+
 import { FeedbackRepository } from './repositories/feedback.repository';
 
 export { FeedbackRepository };
 
 @Module({
-  imports: [TypeOrmModule.forFeature([FeedbackEntity])],
+  imports: [TypeOrmModule.forFeature([FeedbackModel])],
   providers: [FeedbackRepository],
   exports: [FeedbackRepository],
 })

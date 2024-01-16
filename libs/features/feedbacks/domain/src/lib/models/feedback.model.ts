@@ -1,3 +1,4 @@
+import { Field, ID, Int, ObjectType } from '@nestjs/graphql';
 import {
   Column,
   CreateDateColumn,
@@ -6,41 +7,36 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-export enum FeedbackProvider {
-  DELIVEROO = 'deliveroo',
-  UBER_EATS = 'uber-eats',
-  SALESFORCE = 'salesforce',
-  SHOPIFY = 'shopify',
-}
+import { FeedbackProvider, FeedbackStatus } from './feedback-types';
 
-export enum FeedbackStatus {
-  NEW = 'new',
-  WAITING = 'waiting',
-  ACTIVE = 'active',
-  ARCHIVED = 'archived',
-  PINNED = 'pinned',
-}
-
+@ObjectType()
 @Entity({ name: 'feedbacks' })
-export class FeedbackEntity {
+export class FeedbackModel {
+  @Field(() => ID)
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
+  @Field()
   @CreateDateColumn()
   createdAt: Date;
 
+  @Field()
   @UpdateDateColumn()
   updatedAt: Date;
 
+  @Field(() => FeedbackProvider)
   @Column({ type: 'enum', enum: FeedbackProvider })
   provider: FeedbackProvider;
 
+  @Field(() => FeedbackStatus)
   @Column({ type: 'enum', enum: FeedbackStatus })
   status: FeedbackStatus;
 
+  @Field(() => Int)
   @Column({ type: 'int' })
   note: number;
 
+  @Field(() => String)
   @Column({ type: 'text' })
   content: string;
 }
