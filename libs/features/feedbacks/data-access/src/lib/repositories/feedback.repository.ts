@@ -12,4 +12,10 @@ export class FeedbackRepository {
     @InjectRepository(FeedbackModel)
     private readonly feedbackRepository: Repository<FeedbackModel>,
   ) {}
+
+  find(
+    ...args: Parameters<Repository<FeedbackModel>['find']>
+  ): Promise<FeedbackModel[]> {
+    return this.feedbackRepository.find(...args);
+  }
 }

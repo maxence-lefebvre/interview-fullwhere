@@ -1,9 +1,14 @@
 import { Query, Resolver } from '@nestjs/graphql';
 
-@Resolver('Foo')
+import { FeedbackRepository } from '@fullwhere/features/feedbacks/data-access';
+import { FeedbackModel } from '@fullwhere/features/feedbacks/domain';
+
+@Resolver(() => FeedbackModel)
 export class FeedbackResolver {
-  @Query(() => String)
-  foo(): string {
-    return 'foo';
+  public constructor(private readonly feedbackRepository: FeedbackRepository) {}
+
+  @Query(() => [FeedbackModel])
+  list(): Promise<FeedbackModel[]> {
+    return this.feedbackRepository.find();
   }
 }

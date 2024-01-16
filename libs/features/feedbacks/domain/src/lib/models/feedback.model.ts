@@ -9,7 +9,7 @@ import {
 
 import { FeedbackProvider, FeedbackStatus } from './feedback-types';
 
-@ObjectType()
+@ObjectType('feedback')
 @Entity({ name: 'feedbacks' })
 export class FeedbackModel {
   @Field(() => ID)
