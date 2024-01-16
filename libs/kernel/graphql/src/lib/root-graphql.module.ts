@@ -4,7 +4,6 @@ import { ConfigModule } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
 
 import { GraphqlConfig, graphqlConfig } from './config/graphql.config';
-import { FooResolver } from './foo.resolver';
 
 @Module({
   imports: [
@@ -15,6 +14,5 @@ import { FooResolver } from './foo.resolver';
       inject: [graphqlConfig.KEY],
     }),
   ],
-  providers: [FooResolver],
 })
 export class RootGraphQLModule {}
